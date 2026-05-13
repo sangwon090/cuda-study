@@ -3,7 +3,7 @@
 #include <cstdio>
 
 __global__ void hello_kernel() {
-    printf("Hello from GPU: block=%d, thread=%d\n", blockIdx.x, threadIdx.x);
+    printf("[DEVICE] Hello from GPU: block=%d, thread=%d\n", blockIdx.x, threadIdx.x);
 }
 
 void HelloKernel::launch() {
