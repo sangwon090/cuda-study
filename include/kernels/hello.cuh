@@ -4,7 +4,7 @@
 
 class HelloKernel : public Kernel {
 public:
-    const char* get_name() const {
+    const char* get_name() const override {
         return "Hello Kernel";
     }
 
