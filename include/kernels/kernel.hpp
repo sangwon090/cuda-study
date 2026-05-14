@@ -10,8 +10,12 @@ public:
 
     virtual const char* get_name() const = 0;
 
+    virtual void prepare() { };
     virtual void launch() = 0;
+    virtual void cleanup() { };
     virtual float run() {
+        prepare();
+
         cudaError_t err;
         cudaEvent_t start, stop;
 
@@ -36,6 +40,8 @@ public:
         cudaEventElapsedTime(&elapsed, start, stop);
         cudaEventDestroy(start);
         cudaEventDestroy(stop);
+
+        cleanup();
 
         return elapsed;
     }
