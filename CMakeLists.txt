@@ -10,6 +10,7 @@ find_package(CUDAToolkit REQUIRED)
 add_executable(cuda_study
     src/main.cpp
     src/kernels/hello.cu
+    src/kernels/vecadd.cu
 )
 
 target_compile_features(cuda_study PRIVATE cxx_std_23 cuda_std_17)
